@@ -26,8 +26,8 @@ public class ApiStepDefinitions {
         Assertions.assertThat(points).isNotEmpty();
     }
 
-    @Then("the response is saved to file {string}")
+    @Then("the response is saved to file with {string} in the name")
     public void theResponseIsSavedToFile(String city) { 
-    responseFileWriter.savePointsToFile(city, points);
+        responseFileWriter.savePointsToFile(city, points);
     }
 }

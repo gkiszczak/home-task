@@ -11,8 +11,9 @@ services:
     depends_on:
       - selenium
     environment:
-      - BASE_URL=
-      - API_KEY=put_your_api_key
+      - BASE_API_URL=
+      - BASE_UI_URL=
+      - API_KEY=
       - SELENIUM_REMOTE_URL=http://selenium:4444/wd/hub
       - TEST_TYPE=${TEST_TYPE}
     volumes:

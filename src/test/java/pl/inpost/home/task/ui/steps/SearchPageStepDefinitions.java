@@ -7,9 +7,8 @@ import io.cucumber.java.en.When;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import pl.inpost.home.task.ui.page.ParcelStatusPage;
+import pl.inpost.home.task.config.Config;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class SearchPageStepDefinitions {
     private WebDriver driver;
@@ -17,12 +16,13 @@ public class SearchPageStepDefinitions {
 
     public SearchPageStepDefinitions(Hooks hooks) {
         this.driver = hooks.getDriver();
+        this.parcelStatusPage = new ParcelStatusPage(driver);
+        
     }
 
     @Given("I open InPost tracking page")
     public void iOpenInpostTrackingPage() {
-        driver.get("https://inpost.pl/sledzenie-przesylek");
-        parcelStatusPage = new ParcelStatusPage(driver);
+        driver.get(Config.getBaseUIUrl());
     }
 
     @When("I enter tracking number {string}")
