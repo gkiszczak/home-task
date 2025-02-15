@@ -1,13 +1,9 @@
-package pl.inpost.home.task.api;
+package pl.inpost.home.task.api.helpers;
 
 
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import pl.inpost.home.task.api.model.Point;
 import pl.inpost.home.task.api.model.PointsResponse;
-import pl.inpost.home.task.config.ApiConfig;
-
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
@@ -16,11 +12,11 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InpostApi {
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+public class ParcelLockersHelper extends BaseHelper {
 
-
-    public static List<Point> fetchAllPoints(String city) {
+    private static final String POINTS_ENDPOINT = "/points";
+    
+    public List<Point> getParcelLockersForCity(String city) {
         List<Point> allPoints = new ArrayList<>();
         int page = 1;
         int allPages = 0;
@@ -32,7 +28,7 @@ public class InpostApi {
                     .queryParam("city", city)
                     .queryParam("page", page)
                     .when()
-                    .get(ApiConfig.getBaseUrl() + ApiConfig.POINTS_ENDPOINT)
+                    .get(getEndpoint(POINTS_ENDPOINT))
                     .then()
                     .statusCode(200)
                     .extract()
@@ -46,17 +42,6 @@ public class InpostApi {
         } while (page <= allPages);
 
         return allPoints;
-    }
-
-    public static void savePointsToFile(String city, List<Point> points) {
-        try {
-String filePath = "target/response/" +"package-" + city + ".json";
-            File file = new File(filePath);
-             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, points);
-            System.out.println("Points saved to: " + file.getAbsolutePath());
-        } catch (IOException e) {
-            System.err.println("Error saving points to file: " + e.getMessage());
-        }
     }
 }
 

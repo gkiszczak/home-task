@@ -11,11 +11,11 @@ import pl.inpost.home.task.ui.page.ParcelStatusPage;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class UiStepDefinitions {
+public class SearchPageStepDefinitions {
     private WebDriver driver;
     ParcelStatusPage parcelStatusPage;
 
-    public InPostSteps(Hooks hooks) {
+    public SearchPageStepDefinitions(Hooks hooks) {
         this.driver = hooks.getDriver();
     }
 
@@ -39,7 +39,5 @@ public class UiStepDefinitions {
     public void iShouldSeeTrackingDetailsWithStatus(String status) {
         String actualStatus = parcelStatusPage.getStatus();
         Assertions.assertThat(actualStatus).isNotEmpty().isEqualTo(status);
-        driver.quit();
     }
 }
-
