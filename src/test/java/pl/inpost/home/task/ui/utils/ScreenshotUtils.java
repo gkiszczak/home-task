@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ScreenshotUtil {
+public class ScreenshotUtils {
     public static void takeScreenshot(WebDriver driver, String scenarioName) {
         if (driver == null) {
             System.err.println("WebDriver is null, cannot take screenshot!");

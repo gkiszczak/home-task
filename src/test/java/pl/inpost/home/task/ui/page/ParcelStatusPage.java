@@ -10,6 +10,10 @@ import java.time.Duration;
 
 public class ParcelStatusPage extends GenericPage{
 
+    public ParcelStatusPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
     public String getStatus(){
         WebElement parcelStatus = driver.findElement(By.xpath("/(//div[contains(@class,'message-box')])[1]"));
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(15));

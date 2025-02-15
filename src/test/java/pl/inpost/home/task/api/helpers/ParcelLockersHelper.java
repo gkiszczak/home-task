@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import pl.inpost.home.task.api.model.Point;
 import pl.inpost.home.task.api.model.PointsResponse;
 import static io.restassured.RestAssured.given;
+import pl.inpost.home.task.config.Config;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class ParcelLockersHelper extends BaseHelper {
         do {
             Response response = given()
                     .auth()
-                    .oauth2(ApiConfig.getApiKey())
+                    .oauth2(Config.getApiKey())
                     .queryParam("city", city)
                     .queryParam("page", page)
                     .when()

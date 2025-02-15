@@ -4,7 +4,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
-import pl.inpost.home.task.ui.utils.ScreenshotUtil;
+import pl.inpost.home.task.ui.utils.ScreenshotUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
@@ -28,7 +28,7 @@ public class Hooks {
     @After
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
-            ScreenshotUtil.takeScreenshot(driver, scenario.getName().replaceAll(" ", "_"));
+            ScreenshotUtils.takeScreenshot(driver, scenario.getName().replaceAll(" ", "_"));
         }
         if (driver != null) {
             driver.quit();

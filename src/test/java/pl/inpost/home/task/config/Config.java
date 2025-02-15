@@ -4,7 +4,7 @@ public class Config {
     private static final String BASE_API_URL = System.getenv("BASE_API_URL");
 
     public static String getBaseApiUrl() {
-        if (BASE_API_URL == null || BASE_AP_URL.isEmpty()) {
+        if (BASE_API_URL == null || BASE_API_URL.isEmpty()) {
             return "https://api.inpost.pl/v1";
         }
         return BASE_API_URL;
