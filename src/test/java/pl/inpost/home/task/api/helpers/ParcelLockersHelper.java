@@ -35,7 +35,6 @@ public class ParcelLockersHelper extends BaseHelper {
                     .extract()
                     .response();
                     
-                    response.prettyPrint();
 
             PointsResponse pointsResponse = response.as(PointsResponse.class);
             allPages = pointsResponse.getTotalPages();
