@@ -10,7 +10,7 @@ public class Config {
         return BASE_API_URL;
     }
 
-    private static final String API_KEY = System.getenv("API_KEY");
+    private static final String API_KEY = System.getProperty("api.key");
 
     public static String getApiKey() {
         if (API_KEY == null || API_KEY.isEmpty()) {
