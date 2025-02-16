@@ -32,8 +32,8 @@ jobs:
     - name: Build with Maven
       run: mvn test -Dtest=pl.inpost.home.task.runners.ApiTestRunner -Dapi.key=${{ secrets.API_KEY }} --file pom.xml -ntp
     - name: Archive target
-        uses: actions/upload-artifact@v4
-        with:
-          name: target with only reports
-          path: 
-            target/reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: target with only reports
+        path: 
+          target/reports
