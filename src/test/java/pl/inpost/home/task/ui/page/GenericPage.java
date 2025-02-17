@@ -19,5 +19,5 @@ public class GenericPage {
         } else {
             throw new IllegalStateException("PageUrl annotation is missing on " + this.getClass().getSimpleName());
         }
-    
+    }
 }
