@@ -1,6 +1,6 @@
 package pl.inpost.home.task.ui.page;
 
-import pl.inpost.home.task.ui.util.WebElementHelper;
+import pl.inpost.home.task.ui.utils.WebElementHelper;
 import org.openqa.selenium.WebDriver;
 
 public class GenericPage {
