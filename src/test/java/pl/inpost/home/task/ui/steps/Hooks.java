@@ -5,24 +5,15 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 import pl.inpost.home.task.ui.utils.ScreenshotUtils;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.MalformedURLException;
-import java.net.URL;
+import pl.inpost.home.task.ui.utils.WebDriverProvider;
 
 public class Hooks {
+    private WebDriverProvider wdp = new WebDriverProvider ();
     private WebDriver driver;
 
     @Before
     public void setUp() {
-        try {
-            String seleniumUrl = System.getProperty("SELENIUM_REMOTE_URL", "http://selenium:4444/wd/hub");
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setBrowserName("chrome");
-            this.driver = new RemoteWebDriver(new URL(seleniumUrl), capabilities);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException("Invalid Selenium URL", e);
-        }
+        this.driver = wdp.prepareWebDriver();
     }
 
     @After

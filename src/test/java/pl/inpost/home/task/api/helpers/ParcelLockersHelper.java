@@ -28,6 +28,7 @@ public class ParcelLockersHelper extends BaseHelper {
                     .oauth2(Config.getApiKey())
                     .queryParam("city", city)
                     .queryParam("page", page)
+                    .queryParam("type", "parcel_locker")
                     .when()
                     .get(getEndpoint(POINTS_ENDPOINT))
                     .then()
@@ -35,7 +36,6 @@ public class ParcelLockersHelper extends BaseHelper {
                     .extract()
                     .response();
                     
-
             PointsResponse pointsResponse = response.as(PointsResponse.class);
             allPages = pointsResponse.getTotalPages();
             allPoints.addAll(pointsResponse.getItems());
