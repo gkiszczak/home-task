@@ -1,5 +1,7 @@
 package pl.inpost.home.task.ui.utils;
 
+import pl.inpost.home.task.config.Config;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,7 +13,6 @@ import java.util.Date;
 
 public class ScreenshotUtils {
 
-      private static final String 
       public static void takeScreenshot(WebDriver driver, String scenarioName){
         if (driver == null) {
             System.err.println("WebDriver is null, cannot take screenshot!");
@@ -21,7 +22,8 @@ public class ScreenshotUtils {
         try {
             File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String filePath = "target/reports/screenshots/" + scenarioName.replaceAll(" ", "_") + "_" + timestamp + ".png";
+            String fileName = scenarioName.replaceAll(" ", "_") + "_" + timestamp + ".png";
+            String filePath = Config.getReportsDirectory() + "screenshots/" + fileName;
             FileUtils.copyFile(srcFile, new File(filePath));
             System.out.println("Screenshot saved: " + filePath);
         } catch (IOException e) {
