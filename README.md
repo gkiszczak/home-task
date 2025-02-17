@@ -79,7 +79,7 @@ To specify an **API key** from Docker Compose, edit `docker-compose.yml`:
 —
 
 ## 📝 **Customization**
-- Modify **`config/WebDriverManager.java`** for UI test setup.
+- Modify **`ui/utils/WebDriverProvider.java`** for UI test setup.
 - Update **API base URLs** in `ApiTest.java`.
 - Add **new Cucumber feature files** in `src/test/resources/features`.
 
