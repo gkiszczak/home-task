@@ -14,6 +14,7 @@ public class Hooks {
     @Before
     public void setUp() {
         this.driver = wdp.prepareWebDriver();
+        System.out.println("Webdriver started"); 
     }
 
     @After
