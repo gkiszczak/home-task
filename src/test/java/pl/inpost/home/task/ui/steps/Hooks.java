@@ -21,9 +21,7 @@ public class Hooks {
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             ScreenshotUtils.takeScreenshot(driver, scenario.getName().replaceAll(" ", "_")); 
-            if (driver != null) {
-            driver.quit();
-        }
+        } 
         
     }
 
