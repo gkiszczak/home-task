@@ -15,7 +15,7 @@ public class SearchPageStepDefinitions {
     ParcelStatusPage parcelStatusPage;
 
     public SearchPageStepDefinitions() { 
-        Hooks hooks = TestContext.getHooks();  
+        Hooks hooks = new Hooks();
         this.driver = hooks.getDriver();
         this.parcelStatusPage = new ParcelStatusPage(this.driver);
         
