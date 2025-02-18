@@ -22,7 +22,7 @@ public class SearchPageStepDefinitions {
 
     @Given("I open InPost tracking page")
     public void iOpenInpostTrackingPage() {
-        driver.get(Config.getBaseUIUrl());
+        parcelStatusPage.goTo();
     }
 
     @When("I enter tracking number {string}")
