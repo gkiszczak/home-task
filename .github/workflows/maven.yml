@@ -30,7 +30,7 @@ jobs:
       env:
         API_KEY: ${{ secrets.API_KEY }} 
     - name: Set Up Docker Compose
-      run: which docker-compose
+      run: docker-compose --version
     - name: Build with Maven
       run: mvn test -Dtest=pl.inpost.home.task.runners.ApiTestRunner -Dapi.key=${{ secrets.API_KEY }} --file pom.xml -ntp
     - name: Archive target
