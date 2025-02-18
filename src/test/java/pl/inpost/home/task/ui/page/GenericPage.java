@@ -10,6 +10,8 @@ public class GenericPage {
     protected WebElementHelper webElementHelper;
     
     public GenericPage(WebDriver driver) {
+    System.out.println("init page object");
+    System.out.println(driver);
         this.driver = driver;
         this.webElementHelper = new WebElementHelper(driver);
     }
