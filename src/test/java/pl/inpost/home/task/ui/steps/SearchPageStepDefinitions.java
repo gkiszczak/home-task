@@ -14,7 +14,8 @@ public class SearchPageStepDefinitions {
     private WebDriver driver;
     ParcelStatusPage parcelStatusPage;
 
-    public SearchPageStepDefinitions(Hooks hooks) {
+    public SearchPageStepDefinitions(
+ ) {
         this.driver = hooks.getDriver();
         this.parcelStatusPage = new ParcelStatusPage(driver);
         

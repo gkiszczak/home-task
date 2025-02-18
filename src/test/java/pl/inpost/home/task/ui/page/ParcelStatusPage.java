@@ -1,5 +1,6 @@
 package pl.inpost.home.task.ui.page;
 
+import 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+@PageUrl("/find-parcel")
 public class ParcelStatusPage extends GenericPage{
 
     public ParcelStatusPage(WebDriver driver) {
