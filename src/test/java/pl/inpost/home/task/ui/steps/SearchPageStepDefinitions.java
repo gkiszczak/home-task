@@ -25,7 +25,7 @@ public class SearchPageStepDefinitions {
     public void iOpenInpostTrackingPage() {
         System.out.println(this.driver); 
         System.out.println(this.parcelStatusPage);
-        parcelStatusPage.goTo();
+        driver.get("http://inpost.pl/en/find-parcel");
     }
 
     @When("I enter tracking number {string}")
