@@ -1,7 +1,5 @@
 package pl.inpost.home.task.ui.steps;
 
-import Hooks;
-
 public class TestContext {
     private static Hooks hooksInstance = null;
 
