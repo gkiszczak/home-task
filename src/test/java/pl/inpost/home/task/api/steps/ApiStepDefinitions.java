@@ -10,6 +10,7 @@ import pl.inpost.home.task.api.model.Point;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Arrays;
 
 public class ApiStepDefinitions {
 
@@ -21,11 +22,11 @@ public class ApiStepDefinitions {
 
     @Given("I fetch all points in {string}")
     public void iFetchAllPointsIn(String cities) {
-        String[] cityArray = cities.split(",");
-        for (String city : cities) {
+        List<String> cityList = Arrays.asList(cities.split(","));
+        cityList.forEach(city -> {
             List<Point> cityPoints = parcelLockersHelper.getParcelLockersForCity(city);
             cityPointsMap.put(city, cityPoints);
-        }
+        });
     }
 
     @Then("the response contains at least 1 point")
