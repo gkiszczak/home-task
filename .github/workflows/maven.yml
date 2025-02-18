@@ -34,6 +34,7 @@ jobs:
     - name: Set Up Docker Compose
       run: docker compose up --build --abort-on-container-exit
     - name: Archive target
+      if: always()  
       uses: actions/upload-artifact@v4
       with:
         name: target with only reports
