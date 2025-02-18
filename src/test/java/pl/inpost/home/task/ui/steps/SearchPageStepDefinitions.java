@@ -14,16 +14,18 @@ public class SearchPageStepDefinitions {
     private WebDriver driver;
     ParcelStatusPage parcelStatusPage;
 
-    public SearchPageStepDefinitions(
- ) { Hooks hooks = TestContext.getHooks();  
-      this.driver = hooks.getDriver();
-        this.parcelStatusPage = new ParcelStatusPage(driver);
+    public SearchPageStepDefinitions() { 
+        Hooks hooks = TestContext.getHooks();  
+        this.driver = hooks.getDriver();
+        this.parcelStatusPage = new ParcelStatusPage(this.driver);
         
     }
 
     @Given("I open InPost tracking page")
     public void iOpenInpostTrackingPage() {
-        System.out.println(this.driver); parcelStatusPage.goTo();
+        System.out.println(this.driver); 
+        System.out.println(this.parcelStatusPage);
+        parcelStatusPage.goTo();
     }
 
     @When("I enter tracking number {string}")
