@@ -20,11 +20,11 @@ public class Hooks {
     @After
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
-            ScreenshotUtils.takeScreenshot(driver, scenario.getName().replaceAll(" ", "_"));
-        }
-        if (driver != null) {
+            ScreenshotUtils.takeScreenshot(driver, scenario.getName().replaceAll(" ", "_")); 
+            if (driver != null) {
             driver.quit();
         }
+        
     }
 
     public WebDriver getDriver() {
