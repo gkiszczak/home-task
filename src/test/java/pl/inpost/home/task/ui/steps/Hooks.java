@@ -9,20 +9,19 @@ import pl.inpost.home.task.ui.utils.WebDriverProvider;
 
 public class Hooks {
     private WebDriverProvider wdp = new WebDriverProvider ();
-    private WebDriver driver;
+    public static WebDriver driver;
 
     @Before
     public void setUp() {
         this.driver = wdp.prepareWebDriver();
-        System.out.println("Webdriver started"); 
     }
 
     @After
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             ScreenshotUtils.takeScreenshot(driver, scenario.getName().replaceAll(" ", "_")); 
-            driver.quit();
         } 
+        driver.quit();
         
     }
 

@@ -11,12 +11,10 @@ import pl.inpost.home.task.config.Config;
 
 
 public class SearchPageStepDefinitions {
-    private WebDriver driver;
+    private WebDriver driver = Hooks.driver;
     ParcelStatusPage parcelStatusPage;
 
     public SearchPageStepDefinitions() { 
-        Hooks hooks = new Hooks();
-        this.driver = hooks.getDriver();
         this.parcelStatusPage = new ParcelStatusPage(this.driver);
         
     }
@@ -25,7 +23,8 @@ public class SearchPageStepDefinitions {
     public void iOpenInpostTrackingPage() {
         System.out.println(this.driver); 
         System.out.println(this.parcelStatusPage);
-        driver.get("http://inpost.pl/en/find-parcel");
+        parcelStatusPage.goTo();
+        //driver.get("http://inpost.pl/en/find-parcel");
     }
 
     @When("I enter tracking number {string}")
