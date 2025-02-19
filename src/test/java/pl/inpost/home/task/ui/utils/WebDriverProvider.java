@@ -10,10 +10,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class WebDriverProvider {
 
     public WebDriver prepareWebDriver() {
-    
-      System.out.println("=== Starting Remote WebDriver");
-
-        System.out.println("=== WebDriver started ===");
         try {
             String seleniumUrl = System.getProperty("SELENIUM_REMOTE_URL", "http://selenium:4444/wd/hub");
             DesiredCapabilities capabilities = new DesiredCapabilities();

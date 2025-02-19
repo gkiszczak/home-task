@@ -34,9 +34,9 @@ jobs:
     - name: Set Up Docker Compose
       run: docker compose up --build --abort-on-container-exit 
       continue-on-error: true
-    - name: Debug: List files in target/
+    - name: List files in target/
       run: ls -R target/ || echo "❌ Target directory not found!"
-    - name: Debug: List files in reports/
+    - name: List files in reports/
       run: ls -R reports/ || echo "❌ Target directory not found!"
     - name: Archive target
       if: always()  
