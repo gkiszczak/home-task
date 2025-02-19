@@ -7,6 +7,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.Map;
+
 public class WebDriverProvider {
 
     public WebDriver prepareWebDriver() {
@@ -15,11 +17,11 @@ public class WebDriverProvider {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName("chrome");
             ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--window-size=1920,1080");
-        options.addArguments("--disable-features=SameSiteByDefaultCookies,CookiesWithoutSameSiteMustBeSecure");
-        options.setExperimentalOption("prefs", Map.of(
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+            options.addArguments("--disable-features=SameSiteByDefaultCookies,CookiesWithoutSameSiteMustBeSecure");
+            options.setExperimentalOption("prefs", Map.of(
             "profile.default_content_setting_values.cookies", 1,
             "profile.block_third_party_cookies", true
         ));
