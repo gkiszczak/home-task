@@ -4,6 +4,8 @@ import pl.inpost.home.task.ui.page.annotations.PageUrl;
 import pl.inpost.home.task.config.Config;
 import pl.inpost.home.task.ui.utils.WebElementHelper;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class GenericPage {
     protected WebDriver driver;
@@ -17,8 +19,15 @@ public class GenericPage {
         if (this.getClass().isAnnotationPresent(PageUrl.class)) {
             String url = Config.getBaseUIUrl() + this.getClass().getAnnotation(PageUrl.class).value();
             driver.get(url);
+            this.handleCookiePopup();
         } else {
             throw new IllegalStateException("PageUrl annotation is missing on " + this.getClass().getSimpleName());
         }
+    }
+    
+    protected void handleCookiePopup(){
+        WebElement cookiePopupAccept = driver.findElement(By.id("onetrust-accept-btn-handler"));
+        webElementHelper.waitUntilDisplayed(cookiePopupAccept);
+        cookiePopupAccept.click();
     }
 }
