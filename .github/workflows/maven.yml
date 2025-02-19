@@ -34,7 +34,7 @@ jobs:
     - name: Set Up Docker Compose
       run: docker compose up --build --abort-on-container-exit 
       continue-on-error: true
-      name: run scripts with info
+    - name: run scripts with info
       run: pwd && ls -a
     - name: Archive target
       if: always()  
