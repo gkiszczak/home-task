@@ -18,6 +18,11 @@ public class WebDriverProvider {
         options.addArguments("--headless");
         options.addArguments("--disable-gpu");
         options.addArguments("--window-size=1920,1080");
+        options.addArguments("--disable-features=SameSiteByDefaultCookies,CookiesWithoutSameSiteMustBeSecure");
+        options.setExperimentalOption("prefs", Map.of(
+            "profile.default_content_setting_values.cookies", 1,
+            "profile.block_third_party_cookies", true
+        ));
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
             return new RemoteWebDriver(new URL(seleniumUrl), capabilities);
         } catch (MalformedURLException e) {
