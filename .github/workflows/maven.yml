@@ -34,8 +34,10 @@ jobs:
     - name: Set Up Docker Compose
       run: docker compose up --build --abort-on-container-exit 
       continue-on-error: true
-    - name: debug
-      run: ls -a target $$ ls -a reports
+    - name: Debug: List files in target/
+      run: ls -R target/ || echo "❌ Target directory not found!"
+    - name: Debug: List files in reports/
+      run: ls -R reports/ || echo "❌ Target directory not found!"
     - name: Archive target
       if: always()  
       uses: actions/upload-artifact@v4
