@@ -35,7 +35,7 @@ jobs:
       run: docker compose up --build --abort-on-container-exit 
       continue-on-error: true
     - name: debug
-      run: pwd 
+      run: pwd && ls -a
     - name: Archive target
       if: always()  
       uses: actions/upload-artifact@v4

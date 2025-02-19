@@ -17,4 +17,4 @@ services:
       - SELENIUM_REMOTE_URL=http://selenium:4444/wd/hub
       - TEST_TYPE=UI
     volumes:
-      - ./target:/app/target
+      - ./reports:/app/target
