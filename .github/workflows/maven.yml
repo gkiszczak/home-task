@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./home-task
+        working-directory: ./
 
     steps:
     - uses: actions/checkout@v4
