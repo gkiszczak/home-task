@@ -43,5 +43,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: target with only reports
-        path: 
-          /home/runner/work/home-task/home-task/target/reports/**/*
+        path: |
+          target/reports/**/*
+          reports/reports/**/*
