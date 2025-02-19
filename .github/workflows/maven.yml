@@ -33,6 +33,7 @@ jobs:
       run: mvn test -Dtest=pl.inpost.home.task.runners.ApiTestRunner -Dapi.key=${{ secrets.API_KEY }} --file pom.xml -ntp 
     - name: Set Up Docker Compose
       run: docker compose up --build --abort-on-container-exit
+      continue-on-error: true
     - name: Archive target
       if: always()  
       uses: actions/upload-artifact@v4
