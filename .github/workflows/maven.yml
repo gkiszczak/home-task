@@ -44,5 +44,5 @@ jobs:
       with:
         name: target with only reports
         path: 
-          home-task/target/reports/**
-          home-task/reports/**
+          home-task/home-task/target/reports/**
+          home-task/home-task/reports/**
