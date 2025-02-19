@@ -18,6 +18,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./home-task
 
     steps:
     - uses: actions/checkout@v4
@@ -44,5 +47,5 @@ jobs:
       with:
         name: target with only reports
         path: 
-          home-task/home-task/target/reports/**
-          home-task/home-task/reports/**
+          target/reports/**
+          reports/**
