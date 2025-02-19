@@ -44,5 +44,5 @@ jobs:
       with:
         name: target with only reports
         path: 
-          /home/runner/work/home-task/home-task/target/reports/**
-          /home/runner/work/home-task/home-taskreports/**
+          /home/runner/work/home-task/home-task/target/reports/**/*
+          /home/runner/work/home-task/home-taskreports/**/*
