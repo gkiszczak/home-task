@@ -22,7 +22,7 @@ public class ScreenshotUtils {
         try {
             File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-            String fileName = scenarioName.replaceAll(" ", "_") + "_" + timestamp + ".png";
+            String fileName = scenarioName + "_" + timestamp + ".png";
             String filePath = Config.getReportsDirectory() + "screenshots/" + fileName;
             FileUtils.copyFile(srcFile, new File(filePath));
             System.out.println("Screenshot saved: " + filePath);

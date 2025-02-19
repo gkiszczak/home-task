@@ -11,7 +11,7 @@ public class WebDriverProvider {
 
     public WebDriver prepareWebDriver() {
         try {
-            String seleniumUrl = System.getProperty("SELENIUM_REMOTE_URL", "http://selenium:4444/wd/hub");
+            String seleniumUrl = System.getProperty("selenium.remote.url", "http://selenium:4444/wd/hub");
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName("chrome");
             ChromeOptions options = new ChromeOptions();
