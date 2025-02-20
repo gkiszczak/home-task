@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
 
 @PageUrl("/find-parcel")
@@ -29,8 +29,10 @@ public class ParcelStatusPage extends GenericPage{
     }
 
     public void searchParcel(){
-        WebElement searchButton = driver.findElement(By.xpath("//form[@class='tracking-form']/descendant::button"));
-        webElementHelper.waitUntilDisplayed(searchButton);
-        searchButton.click();
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.RETURN).perform();
+        //WebElement searchButton = driver.findElement(By.xpath("//form[@class='tracking-form']/descendant::button"));
+        //webElementHelper.waitUntilDisplayed(searchButton);
+        //searchButton.click();
     }
 }
