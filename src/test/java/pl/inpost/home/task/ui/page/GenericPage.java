@@ -19,13 +19,12 @@ public class GenericPage {
         if (this.getClass().isAnnotationPresent(PageUrl.class)) {
             String url = Config.getBaseUIUrl() + this.getClass().getAnnotation(PageUrl.class).value();
             driver.get(url);
-            this.handleCookiePopup();
         } else {
             throw new IllegalStateException("PageUrl annotation is missing on " + this.getClass().getSimpleName());
         }
     }
     
-    protected void handleCookiePopup(){
+    public void handleCookiePopup(){
         WebElement cookiePopupAccept = driver.findElement(By.id("onetrust-accept-btn-handler"));
         webElementHelper.waitUntilDisplayed(cookiePopupAccept);
         cookiePopupAccept.click();

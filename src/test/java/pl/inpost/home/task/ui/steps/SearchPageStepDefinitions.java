@@ -22,6 +22,7 @@ public class SearchPageStepDefinitions {
     @Given("I open InPost tracking page")
     public void iOpenInpostTrackingPage() {
         parcelStatusPage.goTo();
+        parcelStatusPage.handleCookiePopup();
     }
 
     @When("I enter tracking number {string}")
