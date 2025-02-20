@@ -29,7 +29,7 @@ public class ParcelStatusPage extends GenericPage{
     }
 
     public void searchParcel(){
-        WebElement searchButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        WebElement searchButton = driver.findElement(By.xpath("//form[@class='tracking-form']/descendant::button"));
         webElementHelper.waitUntilDisplayed(searchButton);
         searchButton.click();
     }
