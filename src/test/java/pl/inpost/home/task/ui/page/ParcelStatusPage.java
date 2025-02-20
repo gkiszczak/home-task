@@ -18,7 +18,7 @@ public class ParcelStatusPage extends GenericPage{
     }
 
     public String getStatus(){
-        WebElement parcelStatus = driver.findElement(By.xpath("/(//div[contains(@class,'message-box')])[1]"));
+        WebElement parcelStatus = driver.findElement(By.xpath("//div[@class = 'single--status--block -active]/descendant::div[@class = 'message-box messageBox']"));
         webElementHelper.waitUntilDisplayed(parcelStatus);
         return parcelStatus.getText();
     }
